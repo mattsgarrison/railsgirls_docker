@@ -1,6 +1,9 @@
 FROM ubuntu
 MAINTAINER Matt S. Garrison <matt@mattsgarrison.com>
 
+# Disable apt prompts
+ENV DEBIAN_FRONTEND noninteractive
+
 # CREATE USER
 RUN useradd -d /home/deployer -m deployer
 RUN chown -R deployer:deployer /home/deployer
@@ -41,7 +44,7 @@ RUN apt-get install -y ruby2.1
 
 EXPOSE 3000
 
-ADD /home/mattgarrison/Projects/web/railsgirls_nola /rails_app
+ADD /home/matt/Projects/web/railsgirls_nola /rails_app
 WORKDIR /rails_app
 RUN bundle install
 
