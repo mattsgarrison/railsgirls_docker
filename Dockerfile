@@ -37,7 +37,7 @@ RUN apt-get install -y -q redis-server
 
 # Install an updated Ruby
 RUN apt-get install -y libyaml-dev ncurses-dev libreadline-dev bison libgdbm-dev libc6-dev libssl-dev libsqlite3-dev make build-essential libssl-dev libreadline6-dev zlib1g-dev libyaml-dev libreadline-ruby libopenssl-ruby libcurl4-openssl-dev libxml2-dev libxslt1-dev libpq-dev gcc
-RUN apt-get install ruby2.1
+RUN apt-get install -y ruby2.1
 
 EXPOSE 3000
 
