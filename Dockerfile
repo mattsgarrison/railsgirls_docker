@@ -27,6 +27,9 @@ RUN apt-get install -y nodejs vim emacs htop tree zsh fish
 
 ### SERVICES ###
 
+# Supervisor
+RUN apt-get install -y -q supervisor
+
 # MEMCACHED
 RUN apt-get install -y -q memcached
 
@@ -40,15 +43,16 @@ RUN apt-get install -y -q redis-server
 
 # Install an updated Ruby
 RUN apt-get install -y libyaml-dev ncurses-dev libreadline-dev bison libgdbm-dev libc6-dev libssl-dev libsqlite3-dev make build-essential libssl-dev libreadline6-dev zlib1g-dev libyaml-dev libreadline-ruby libopenssl-ruby libcurl4-openssl-dev libxml2-dev libxslt1-dev libpq-dev gcc
-RUN apt-get install -y ruby2.1
+RUN apt-get install -y ruby2.1 ruby2.1-dev
 
 EXPOSE 3000
 
-ADD /home/matt/Projects/web/railsgirls_nola /rails_app
-WORKDIR /rails_app
-RUN bundle install
+#ADD /home/matt/Projects/web/railsgirls_nola /rails_app
+#WORKDIR /rails_app
+#RUN bundle install
 
-ENTRYPOINT ["/rails_app"]
+#ENTRYPOINT ["/rails_app"]
 #CMD ["su", "-", "deployer", "/usr/local/bin/passenger", "start", "/rails_app/"]
 # Set up a default runtime command
-CMD rails server
+#CMD rails server
+CMD "echo its alive"
